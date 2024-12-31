@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+build/
+*.egg-info/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+
+# IDE
+.idea/
+.vscode/
+
+# Project specific
+plots/

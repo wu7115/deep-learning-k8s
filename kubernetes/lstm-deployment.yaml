@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lstm-deployment
+  labels:
+    app: lstm-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lstm-model
+  template:
+    metadata:
+      labels:
+        app: lstm-model
+    spec:
+      containers:
+      - name: lstm-container
+        image: daniel7115/lstm:latest
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "4Gi"
+            cpu: "2"

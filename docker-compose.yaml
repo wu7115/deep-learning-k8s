@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  cnn_model:
+    image: daniel7115/cnn:latest
+    container_name: cnn_container
+    volumes:
+      - ./cnn/cnn.py:/app/cnn.py:ro 
+      - ./cnn/dataset:/app/dataset:ro 
+      - ./cnn/plots:/app/plots
+    environment:
+      - DATASET_PATH=/app/dataset
+
+  lstm_model:
+    image: daniel7115/lstm:latest
+    container_name: lstm_container
+    volumes:
+      - ./lstm/lstm.py:/app/lstm.py:ro 
+      - ./lstm/dataset:/app/dataset:ro 
+      - ./lstm/plots:/app/plots
+    environment:
+      - DATASET_PATH=/app/dataset

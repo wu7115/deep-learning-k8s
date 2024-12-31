@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cnn-deployment
+  labels:
+    app: cnn-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cnn-model
+  template:
+    metadata:
+      labels:
+        app: cnn-model
+    spec:
+      containers:
+      - name: cnn-container
+        image: daniel7115/cnn:latest
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "4Gi"
+            cpu: "2"
